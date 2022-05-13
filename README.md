@@ -1,4 +1,4 @@
-# 8 Queens riddle
+# The eight queens puzzle.
 
 #### The eight queens puzzle is the problem of placing eight chess queens on an 8×8 chessboard so that no two queens threaten each other. ####
 #### This console application will generate randomly different solution every time. ####
