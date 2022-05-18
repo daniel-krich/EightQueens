@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 
 namespace EightQueensRiddleSolution
 {
@@ -21,7 +22,7 @@ namespace EightQueensRiddleSolution
             this.board = new char[queens, queens];
         }
 
-        public void SolveOutput()
+        public string SolveOutput(bool displayTable)
         {
             Stopwatch stopwatch = new Stopwatch();
 
@@ -35,9 +36,13 @@ namespace EightQueensRiddleSolution
 
             stopwatch.Stop();
 
-            PrintBoard();
+            if (displayTable)
+            {
+                PrintBoard();
+                Console.WriteLine($"Compute time: {stopwatch.ElapsedMilliseconds} ms ({stopwatch.ElapsedMilliseconds / 1000d} sec) ({stopwatch.ElapsedTicks} ticks)");
+            }
 
-            Console.WriteLine($"Compute time: {stopwatch.ElapsedMilliseconds} ms ({stopwatch.ElapsedMilliseconds/1000d} sec)");
+            return GetTableString();
         }
 
         private void PlaceQueen()
@@ -162,6 +167,14 @@ namespace EightQueensRiddleSolution
                 currentCubeColor = currentCubeColor == ConsoleColor.DarkGray ? ConsoleColor.Gray : ConsoleColor.DarkGray;
             }
             Console.ResetColor();
+        }
+
+        private string GetTableString()
+        {
+            StringBuilder sb = new StringBuilder();
+            foreach(char chr in board)
+                sb.Append(chr);
+            return sb.ToString();
         }
     }
 }
