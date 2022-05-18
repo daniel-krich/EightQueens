@@ -39,7 +39,7 @@ namespace EightQueensRiddleSolution
             if (displayTable)
             {
                 PrintBoard();
-                Console.WriteLine($"Compute time: {stopwatch.ElapsedMilliseconds} ms ({stopwatch.ElapsedMilliseconds / 1000d} sec) ({stopwatch.ElapsedTicks} ticks)");
+                Console.WriteLine($"Compute time: {stopwatch.ElapsedMilliseconds} ms ({stopwatch.ElapsedMilliseconds / 1000d} sec) ({stopwatch.ElapsedTicks} ticks)\n");
             }
 
             return GetTableString();
